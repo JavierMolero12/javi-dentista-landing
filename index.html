@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javi Dentista — Clínica Dental</title>
+  <meta name="description" content="Clínica dental Javi Dentista. Cuidamos tu sonrisa con un trato cercano y profesional. Agenda tu cita hoy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfcfd;
+      --surface: #ffffff;
+      --ink: #1a2b33;
+      --ink-soft: #5a6b73;
+      --line: #e6edf0;
+      --accent: #2ba3a3;
+      --accent-dark: #1e7d7d;
+      --accent-soft: #e8f5f5;
+      --shadow: 0 1px 2px rgba(26,43,51,.04), 0 8px 24px rgba(26,43,51,.06);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.15; letter-spacing: -.01em; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,252,253,.82);
+      backdrop-filter: saturate(140%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+    .brand .mark {
+      width: 32px; height: 32px; border-radius: 9px;
+      background: var(--accent); color: #fff;
+      display: grid; place-items: center; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
+    }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: .95rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-weight: 600; font-size: .95rem; padding: 11px 22px;
+      border-radius: 999px; border: none; cursor: pointer;
+      transition: background .15s, transform .15s, box-shadow .15s;
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(43,163,163,.28); }
+    .btn-lg { padding: 15px 30px; font-size: 1.02rem; }
+    .nav .btn { padding: 9px 20px; }
+
+    @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 92px 0 76px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--accent-dark); background: var(--accent-soft);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); margin-bottom: 20px; }
+    .hero p.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 44ch; margin-bottom: 32px; }
+    .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .hero-cta .ghost { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; padding: 13px 10px; }
+    .hero-cta .ghost:hover { color: var(--accent-dark); }
+
+    .hero-card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 24px; box-shadow: var(--shadow); padding: 34px;
+      position: relative; overflow: hidden;
+    }
+    .hero-card::before {
+      content: ""; position: absolute; top: -60px; right: -60px;
+      width: 180px; height: 180px; border-radius: 50%; background: var(--accent-soft);
+    }
+    .hero-card-inner { position: relative; }
+    .hero-card h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .hero-card .sub { color: var(--ink-soft); font-size: .95rem; margin-bottom: 24px; }
+    .quick-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .quick-row:first-of-type { border-top: none; }
+    .quick-ic {
+      width: 42px; height: 42px; flex: 0 0 42px; border-radius: 11px;
+      background: var(--accent-soft); color: var(--accent-dark);
+      display: grid; place-items: center;
+    }
+    .quick-row b { display: block; font-size: .98rem; }
+    .quick-row span { font-size: .9rem; color: var(--ink-soft); }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding: 60px 0 56px; }
+    }
+
+    /* ---------- Services ---------- */
+    section.block { padding: 72px 0; }
+    .section-head { text-align: center; max-width: 54ch; margin: 0 auto 48px; }
+    .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 14px; }
+    .section-head p { color: var(--ink-soft); font-size: 1.08rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 28px;
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #d6e3e6; }
+    .card .ic {
+      width: 48px; height: 48px; border-radius: 13px; margin-bottom: 18px;
+      background: var(--accent-soft); color: var(--accent-dark);
+      display: grid; place-items: center;
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { color: var(--ink-soft); font-size: .96rem; }
+
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+
+    /* ---------- Booking ---------- */
+    .booking { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .booking-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+    .booking-info h2 { font-size: clamp(1.9rem, 3.8vw, 2.5rem); margin-bottom: 16px; }
+    .booking-info p { color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 28px; }
+    .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .contact-item .ic { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 11px; background: var(--accent-soft); color: var(--accent-dark); display: grid; place-items: center; }
+    .contact-item b { display: block; font-size: .98rem; }
+    .contact-item span { color: var(--ink-soft); font-size: .94rem; }
+
+    form {
+      background: var(--bg); border: 1px solid var(--line);
+      border-radius: 20px; padding: 32px; box-shadow: var(--shadow);
+    }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: .9rem; font-weight: 600; margin-bottom: 7px; }
+    .field input, .field select, .field textarea {
+      width: 100%; font: inherit; font-size: .98rem; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 11px; padding: 12px 14px; transition: border-color .15s, box-shadow .15s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .field textarea { resize: vertical; min-height: 84px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form .btn { width: 100%; margin-top: 6px; }
+    .form-note { text-align: center; font-size: .85rem; color: var(--ink-soft); margin-top: 14px; }
+
+    .success {
+      display: none; text-align: center; padding: 20px;
+      background: var(--accent-soft); border-radius: 12px; color: var(--accent-dark);
+      font-weight: 500; margin-bottom: 18px;
+    }
+    .success.show { display: block; }
+
+    @media (max-width: 860px) { .booking-grid { grid-template-columns: 1fr; gap: 36px; } .two { grid-template-columns: 1fr; } }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 44px 0; }
+    .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .foot .brand { font-size: 1.1rem; }
+    .foot p { color: var(--ink-soft); font-size: .9rem; }
+
+    svg { display: block; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="brand"><span class="mark">J</span> Javi Dentista</a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#cita">Contacto</a>
+        <a href="#cita" class="btn">Agendar cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">● Aceptamos nuevos pacientes</span>
+        <h1>Tu sonrisa, en las mejores manos</h1>
+        <p class="lead">Clínica dental con un trato cercano y tecnología de última generación. Cuidamos de tu salud bucal con la atención personalizada que mereces.</p>
+        <div class="hero-cta">
+          <a href="#cita" class="btn btn-lg">Agendar mi cita</a>
+          <a href="#servicios" class="ghost">Ver servicios →</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <h3>¿Por qué elegirnos?</h3>
+          <p class="sub">Cuidado dental sin complicaciones.</p>
+
+          <div class="quick-row">
+            <span class="quick-ic">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <div><b>Primera visita sin coste</b><span>Diagnóstico y plan de tratamiento gratis.</span></div>
+          </div>
+          <div class="quick-row">
+            <span class="quick-ic">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div><b>Horario flexible</b><span>Citas de lunes a sábado, mañana y tarde.</span></div>
+          </div>
+          <div class="quick-row">
+            <span class="quick-ic">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3c0 1.6-1 2-1 5 0 4 1 11 2 11s1-3 2-3 1 3 2 3 2-7 2-11c0-3-1-3.4-1-5a3 3 0 0 0-3-3z"/></svg>
+            </span>
+            <div><b>Trato cercano</b><span>Te explicamos cada paso con transparencia.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="block" id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Lo que hacemos por ti</h2>
+        <p>Una gama completa de tratamientos para mantener tu boca sana y tu sonrisa radiante.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="ic">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3c0 1.6-1 2-1 5 0 4 1 11 2 11s1-3 2-3 1 3 2 3 2-7 2-11c0-3-1-3.4-1-5a3 3 0 0 0-3-3z"/></svg>
+          </span>
+          <h3>Odontología general</h3>
+          <p>Revisiones, limpiezas y empastes para prevenir y tratar a tiempo.</p>
+        </div>
+        <div class="card">
+          <span class="ic">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <h3>Estética dental</h3>
+          <p>Blanqueamiento y carillas para una sonrisa luminosa y natural.</p>
+        </div>
+        <div class="card">
+          <span class="ic">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </span>
+          <h3>Ortodoncia</h3>
+          <p>Brackets y alineadores invisibles para corregir tu mordida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITA -->
+  <section class="block booking" id="cita">
+    <div class="wrap booking-grid">
+      <div class="booking-info">
+        <h2>Agenda tu cita</h2>
+        <p>Rellena el formulario y nos pondremos en contacto contigo para confirmar el día y la hora que mejor te venga.</p>
+
+        <div class="contact-item">
+          <span class="ic">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <div><b>Teléfono</b><span>+34 600 123 456</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="ic">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <div><b>Email</b><span>hola@javidentista.es</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="ic">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div><b>Dirección</b><span>Calle Mayor 12, Madrid</span></div>
+        </div>
+      </div>
+
+      <form id="citaForm" novalidate>
+        <div class="success" id="successMsg">¡Gracias! Hemos recibido tu solicitud. Te llamaremos muy pronto para confirmar tu cita. 🦷</div>
+
+        <div class="two">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label for="fecha">Día preferido</label>
+            <input type="date" id="fecha" name="fecha" required>
+          </div>
+          <div class="field">
+            <label for="motivo">Motivo</label>
+            <select id="motivo" name="motivo" required>
+              <option value="" disabled selected>Elige una opción</option>
+              <option>Primera visita / revisión</option>
+              <option>Limpieza dental</option>
+              <option>Estética dental</option>
+              <option>Ortodoncia</option>
+              <option>Urgencia / dolor</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente qué necesitas…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-lg">Solicitar cita</button>
+        <p class="form-note">Te responderemos en menos de 24 horas laborables.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <a href="#" class="brand"><span class="mark">J</span> Javi Dentista</a>
+      <p>© 2026 Javi Dentista · Calle Mayor 12, Madrid · +34 600 123 456</p>
+    </div>
+  </footer>
+
+  <script>
+    // Evita elegir fechas pasadas
+    const fecha = document.getElementById('fecha');
+    if (fecha) fecha.min = new Date().toISOString().split('T')[0];
+
+    // Envío del formulario (demo — sin backend)
+    const form = document.getElementById('citaForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      document.getElementById('successMsg').classList.add('show');
+      form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+      document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+
+</body>
+</html>
